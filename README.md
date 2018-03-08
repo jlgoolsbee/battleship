@@ -6,6 +6,8 @@ An implementation of the classic game "Battleship" written in Ruby. This is not 
 * do not overlap/intersect
 * do not extend/wrap past the edges of the board
 
+Note: requires Ruby 2.4.x.
+
 ## Use
 
 Run the game:
