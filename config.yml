@@ -1,0 +1,13 @@
+:ships:
+  - :name: tug
+    :length: 2
+  - :name: destroyer
+    :length: 2
+  - :name: submarine
+    :length: 3
+  - :name: battleship
+    :length: 4
+  - :name: cruiser
+    :length: 5
+:board:
+  :size: 10
