@@ -1,5 +1,7 @@
 # Battleship
 
+[![CircleCI](https://circleci.com/gh/jlgoolsbee/battleship/tree/master.svg?style=shield)](https://circleci.com/gh/jlgoolsbee/battleship/tree/master)
+
 An implementation of the classic game "Battleship" written in Ruby. This is not a full game; at the moment, all that exists are routines to create ships and game boards, and to place the configured ships on the game board such that the ships:
 
 * are placed randomly
