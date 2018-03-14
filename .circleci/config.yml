@@ -1,0 +1,36 @@
+version: 2
+jobs:
+  build:
+    working_directory: /tmp/battleship
+
+    docker:
+      - image: ruby:2.5.0-alpine
+
+    steps:
+      - checkout
+
+      - restore_cache:
+          keys:
+            - battleship-gem-cache-{{ .Branch }}-{{ checksum "Gemfile" }}
+            - battleship-gem-cache-{{ .Branch }}-
+            - battleship-gem-cache-
+
+      - run:
+          name: Install dependencies
+          command: bundle check --path=vendor/bundle || bundle install --path=vendor/bundle --jobs=4 --retry=3
+
+      - save_cache:
+          key: battleship-gem-cache-{{ .Branch }}-{{ checksum "Gemfile" }}
+          paths:
+            - vendor
+
+      - run:
+          name: Execute tests
+          command: |
+            bundle exec rake test
+
+      - store_test_results:
+          path: test_reports
+
+      - store_artifacts:
+          path: test_reports
